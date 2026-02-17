@@ -947,35 +947,60 @@ body {
     border-top: 1px solid #34495e;
     color: #bdc3c7;
 }
+@media (max-width: 1200px) {
+    .nav-container {
+        padding: 1rem 20px;
+    }
+    .hero-content h1 {
+        font-size: 3rem;
+    }
+    
+    .books-slider {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+    
+    .about-content,
+    .contact-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .about-image img {
+        height: auto;
+    }
+    
+}
 
 /* Responsive Design */
-@media (max-width: 768px) {
+@media (max-width: 900px) {
+
     .hamburger {
         display: flex;
-    }
+    }    
     
+
     .nav-menu {
         display: none;
+        flex-direction: column;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        padding: 1rem;
+        border-radius: 10px;
+        box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+
     }
-    
+  
     .hero-content h1 {
         font-size: 2.5rem;
+        
     }
     
     .hero-buttons {
-        flex-direction: column;
         align-items: center;
     }
-    
-    .search-container {
-        flex-direction: column;
-        border-radius: 15px;
-    }
-    
-    .search-container button {
-        border-radius: 0 0 15px 15px;
-    }
-    
+ 
     .about-content,
     .contact-content {
         grid-template-columns: 1fr;
@@ -1007,6 +1032,8 @@ body {
 }
 
 @media (max-width: 480px) {
+
+    
     .hero-content h1 {
         font-size: 2rem;
     }
@@ -1040,3 +1067,4 @@ body {
     background: #34495e;
     color: #ecf0f1;
 }
+

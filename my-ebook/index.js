@@ -673,14 +673,13 @@ function handleNavigation() {
 }
 
 // Mobile navigation
-function toggleMobileNav() {
-  const hamburger = document.querySelector(".hamburger");
-  const navMenu = document.querySelector(".nav-menu");
+const hamburger = document.getElementById('hamburger');
+const navMenu = document.getElementById('navMenu');
 
-  hamburger.addEventListener("click", () => {
-    navMenu.classList.toggle("active");
-  });
-}
+hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    navMenu.classList.toggle('active');
+});
 
 // Newsletter subscription
 function handleNewsletter() {
@@ -812,3 +811,4 @@ document.addEventListener("keydown", function (e) {
     }
   }
 });
+
