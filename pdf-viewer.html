@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Loading...</title>
+
+<style>
+body{
+margin:0;
+font-family:Arial, sans-serif;
+background:#202124;
+color:white;
+overflow:hidden;
+}
+
+.viewer-header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:10px 20px;
+background:#2b2b2b;
+position:fixed;
+width:100%;
+top:0;
+z-index:1000;
+box-sizing:border-box;
+}
+
+.viewer-title{
+font-size:14px;
+}
+
+.controls button{
+background:#3c4043;
+color:white;
+border:none;
+padding:6px 12px;
+margin-left:5px;
+border-radius:4px;
+cursor:pointer;
+}
+
+.controls button:hover{
+background:#5f6368;
+}
+
+.viewer-container{
+margin-top:60px;
+height:calc(100vh - 60px);
+display:flex;
+justify-content:center;
+align-items:flex-start;
+overflow:auto;
+padding:20px;
+box-sizing:border-box;
+}
+
+canvas{
+background:white;
+box-shadow:0 6px 20px rgba(0,0,0,0.5);
+border-radius:6px;
+max-width:100%;
+height:auto;
+}
+</style>
+</head>
+
+<body>
+
+<div class="viewer-header">
+  <div class="viewer-title" id="page-info">Loading...</div>
+
+  <div class="controls">
+    <button id="prev">◀</button>
+    <button id="next">▶</button>
+    <button id="zoom-in">+</button>
+    <button id="zoom-out">−</button>
+  </div>
+</div>
+
+<div class="viewer-container">
+  <canvas id="pdf-render"></canvas>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
+
+<script>
+pdfjsLib.GlobalWorkerOptions.workerSrc =
+'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js';
+
+// ================= GET FILE FROM URL =================
+
+const params = new URLSearchParams(window.location.search);
+const fileParam = params.get("file");
+
+if(!fileParam){
+  document.getElementById("page-info").textContent = "No PDF file specified!";
+  throw new Error("No file parameter found in URL");
+}
+
+document.title = fileParam;
+
+// ================= VARIABLES =================
+
+let pdfDoc = null;
+let pageNum = 1;
+let scale = 1.2;
+
+const canvas = document.getElementById("pdf-render");
+const ctx = canvas.getContext("2d");
+
+// ================= LOAD PDF =================
+
+pdfjsLib.getDocument(fileParam).promise
+.then(pdf => {
+  pdfDoc = pdf;
+  renderPage(pageNum);
+})
+.catch(err => {
+  document.getElementById("page-info").textContent =
+  "Error loading PDF (Check path: Books/resume.pdf)";
+  console.error(err);
+});
+
+// ================= RENDER FUNCTION =================
+
+function renderPage(num){
+  pdfDoc.getPage(num).then(page => {
+
+    const viewport = page.getViewport({ scale });
+    canvas.height = viewport.height;
+    canvas.width = viewport.width;
+
+    page.render({
+      canvasContext: ctx,
+      viewport: viewport
+    });
+
+    document.getElementById("page-info").textContent =
+      `Page ${pageNum} / ${pdfDoc.numPages}`;
+  });
+}
+
+// ================= CONTROLS =================
+
+document.getElementById("next").onclick = () => {
+  if(pageNum < pdfDoc.numPages){
+    pageNum++;
+    renderPage(pageNum);
+  }
+};
+
+document.getElementById("prev").onclick = () => {
+  if(pageNum > 1){
+    pageNum--;
+    renderPage(pageNum);
+  }
+};
+
+document.getElementById("zoom-in").onclick = () => {
+  scale += 0.2;
+  renderPage(pageNum);
+};
+
+document.getElementById("zoom-out").onclick = () => {
+  if(scale > 0.6){
+    scale -= 0.2;
+    renderPage(pageNum);
+  }
+};
+</script>
+
+</body>
+</html>
