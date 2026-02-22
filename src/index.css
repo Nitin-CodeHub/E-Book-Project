@@ -1054,7 +1054,6 @@ body {
     }
     
     .library-filters {
-        flex-direction: column;
         align-items: center;
     }
     
