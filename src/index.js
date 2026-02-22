@@ -22,6 +22,17 @@ const books = [
     cover: "https://images.unsplash.com/photo-1543002588-bfa74002ed7e?w=200",
     rating: 4.5,
     description: "Epic science fiction novel."
+  },
+    {
+    id: 2,
+    title: "Godan",
+    author: "Munshi Premchandra",
+    genre: "sci-fi",
+    format: "pdf",
+    pdf: "books/Title_of_Project.pdf",
+    cover: "https://images.unsplash.com/photo-1543002588-bfa74002ed7e?w=200",
+    rating: 4.5,
+    description: "Epic science fiction novel."
   }
 ];
 
@@ -141,15 +152,23 @@ function startReading() {
 
 
 // ================= MOBILE MENU =================
-
 const hamburger = document.getElementById("hamburger");
 const navMenu = document.querySelector(".nav-menu");
+const navLinks = document.querySelectorAll(".nav-link");
 
-if (hamburger && navMenu) {
-  hamburger.addEventListener("click", () => {
+hamburger.addEventListener("click", () => {
+    hamburger.classList.toggle("active");
     navMenu.classList.toggle("active");
-  });
-}
+});
+
+// Link click → menu close
+navLinks.forEach(link => {
+    link.addEventListener("click", () => {
+        hamburger.classList.remove("active");
+        navMenu.classList.remove("active");
+    });
+});
+ 
 
 
 // ================= INIT =================

@@ -35,6 +35,7 @@ body {
 }
 
 .nav-container {
+    display: flex;
     max-width: 1200px;
     margin: 0 auto;
     padding: 1rem 20px;
@@ -95,6 +96,9 @@ body {
 .login-btn:hover {
     background: #2980b9;
 }
+.nav-menu.active {
+    display: flex;
+}
 
 .hamburger {
     display: none;
@@ -110,6 +114,18 @@ body {
     transition: 0.3s;
 }
 
+/* Hamburger Animation */
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+}
 /* Hero Section */
 .hero {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -973,24 +989,41 @@ body {
 /* Responsive Design */
 @media (max-width: 900px) {
 
+    .nav-container{
+        padding: 2rem 0 ;
+    }
     .hamburger {
         display: flex;
+        position: absolute;
+        top: 25px;
+        right: 20px;
     }    
+   #logo{
+        display: flex;
+        position: absolute;
+        top: 25px;
+        left: 20px;
+    }
     
 
     .nav-menu {
-        display: none;
+        display: flex;
         flex-direction: column;
-        background: rgba(255, 255, 255, 0.95);
+        background: rgba(255, 251, 251, 0.95);
         backdrop-filter: blur(10px);
+        width: 50vw;
         position: absolute;
-        top: 60px;
-        right: 20px;
-        padding: 1rem;
-        border-radius: 10px;
+        top: 5rem;
+        right:-100% ;
+        padding:4.5rem 2rem;
         box-shadow: 0 2px 20px rgba(0,0,0,0.1);
-
+        transition: right 0.3s ease-in-out;
+        
+    } 
+    .nav-menu.active {
+        right: 0px;
     }
+}
   
     .hero-content h1 {
         font-size: 2.5rem;
