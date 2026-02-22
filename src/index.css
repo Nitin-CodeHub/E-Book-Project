@@ -1028,10 +1028,8 @@ body {
     } 
     .nav-menu.active {
         right: 0px;
-        flex-direction: column;
         gap: 1.5rem;
         align-items: flex-start;
-        font-size: 1.5rem;
         font-weight: 700;
     }  
    
