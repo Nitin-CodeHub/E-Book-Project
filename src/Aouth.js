@@ -7,7 +7,7 @@
       const supabase = createClient(supabaseUrl, supabaseKey);
 
       window.supabase = supabase;
-      console.log("Supabase client initialized:");
+      console.log("Supabase client initialized:", supabase);
 
       document.querySelector(".login-btn").addEventListener("click", function(e){
   e.preventDefault();
