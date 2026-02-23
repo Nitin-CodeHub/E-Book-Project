@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -20,7 +20,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
     />
-<link rel="shortcut icon" href="/src/1222.PNG" type="image/x-icon">
+    <link rel="shortcut icon" href="/src/1222.PNG" type="image/x-icon" />
   </head>
   <body>
     <!-- Navigation -->
@@ -49,7 +49,7 @@
         </div>
       </div>
     </nav>
-<a href="resume.pdf" class="read-now">Read Now</a>
+    <a href="resume.pdf" class="read-now">Read Now</a>
     <!-- Home Section -->
     <section id="home" class="hero">
       <div class="hero-content">
@@ -133,7 +133,12 @@
               <div class="rating">★★★★☆ (4.1)</div>
               <button
                 class="read-btn"
-                onclick="addToReadingList('The Girl with the Dragon Tattoo', 'Stieg Larsson')"
+                onclick="
+                  addToReadingList(
+                    'The Girl with the Dragon Tattoo',
+                    'Stieg Larsson',
+                  )
+                "
               >
                 Add to List
               </button>
@@ -499,11 +504,79 @@
         </div>
       </div>
     </footer>
-  
-    <script src="./src/index.js" defer></script>
- 
 
-    
+    <!-- ===== AUTH MODAL ===== -->
+    <div
+      id="authModal"
+      style="
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.7);
+        justify-content: center;
+        align-items: center;
+      "
+    >
+      <div
+        style="
+          background: #fff;
+          padding: 25px;
+          width: 320px;
+          border-radius: 8px;
+          position: relative;
+        "
+      >
+        <h2 id="authTitle">Login</h2>
+
+        <input
+          type="email"
+          id="email"
+          placeholder="Email"
+          style="width: 100%; padding: 8px; margin: 8px 0"
+        />
+        <input
+          type="password"
+          id="password"
+          placeholder="Password"
+          style="width: 100%; padding: 8px; margin: 8px 0"
+        />
+
+        <button
+          onclick="login()"
+          style="width: 100%; padding: 8px; background: #111; color: white"
+        >
+          Login
+        </button>
+
+        <p style="margin-top: 10px; font-size: 14px">
+          <span id="toggleText">Don't have account?</span>
+          <a href="#" onclick="toggleAuth()">Sign Up</a>
+        </p>
+
+        <span
+          onclick="closeAuth()"
+          style="position: absolute; top: 10px; right: 15px; cursor: pointer"
+          >✖</span
+        >
+      </div>
+    </div>
+
+    <script src="./src/index.js" defer></script>
+    <script src="./src/Aouth.js" defer></script>
+
+    <script type="module">
+      import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm";
+
+      const supabaseUrl = "YOUR_SUPABASE_URL";
+      const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imd2YWh3Z3d5eXpqcHJldGx3cG16Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzE4NTM2NzgsImV4cCI6MjA4NzQyOTY3OH0.nG1lR-WxaRfFDvWyU8lp5PY9XC0Dp9-Yjk_kihLjdqU";
+
+      const supabase = createClient(supabaseUrl, supabaseKey);
+
+      window.supabase = supabase;
+      console.log("Supabase client initialized:");
+    </script>
   </body>
 </html>
-
