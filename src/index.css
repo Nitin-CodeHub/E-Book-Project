@@ -20,11 +20,11 @@ body {
     color: #333;
 }
 
-.container {
+/* .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
-}
+} */
 
 /* Navigation */
 .navbar {
@@ -38,9 +38,9 @@ body {
 }
 
 .nav-container {
-    display: flex;
-    max-width: 1200px;
+     max-width: 1200px;
     margin: 0 auto;
+    padding: 1rem 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -976,6 +976,7 @@ body {
 @media (max-width: 1200px) {
     .nav-container {
         padding: 1rem 20px;
+        margin: 1.8rem;
     }
     .hero-content h1 {
         font-size: 3rem;
@@ -998,10 +999,6 @@ body {
 
 /* Responsive Design */
 @media (max-width: 940px) {
-
-    .nav-container{
-        padding: 2rem 0 ;
-    }
     .hamburger {
         display: flex;
         position: absolute;

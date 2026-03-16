@@ -150,7 +150,6 @@ function startReading() {
   }
 }
 
-
 // ================= MOBILE MENU =================
 const hamburger = document.getElementById("hamburger");
 const navMenu = document.querySelector(".nav-menu");
@@ -169,7 +168,6 @@ navLinks.forEach(link => {
     });
 });
  
-
 
 // ================= INIT =================
 
