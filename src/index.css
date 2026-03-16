@@ -1020,7 +1020,7 @@ body {
         backdrop-filter: blur(10px);
         width: 50vw;
         position: absolute;
-        top: 5rem;
+        top: 6.2rem;
         right:-100% ;
         padding:4.5rem 2rem;
         box-shadow: 0 2px 20px rgba(0,0,0,0.1);
