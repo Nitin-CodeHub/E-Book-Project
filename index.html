@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -13,21 +13,21 @@
       integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT"
       crossorigin="anonymous"
     />
+    
     <title>BookVerse - Your Digital Library</title>
-    <link rel="stylesheet" href="src/index.css" />
-    <link rel="stylesheet" href="./src/index.css" />
+    <link rel="stylesheet" href="my-ebook/index.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
     />
-    <link rel="shortcut icon" href="./src/1222.PNG" type="image/x-icon" />
+<link rel="shortcut icon" href="my-ebook/1222.PNG" type="image/x-icon">
   </head>
   <body>
     <!-- Navigation -->
     <nav class="navbar">
       <div class="nav-container">
         <div class="nav-logo">
-          <h2 id="logo"><i class="fas fa-book-open"></i> BookVerse</h2>
+          <h2><i class="fas fa-book-open"></i> BookVerse</h2>
         </div>
         <ul class="nav-menu">
           <li><a href="#home" class="nav-link">Home</a></li>
@@ -40,7 +40,7 @@
               >Reading List (<span id="reading-count">0</span>)</a
             >
           </li>
-          <li><a href="./src/login.html" class="nav-link login-btn" target="_blank">Login</a></li>
+          <li><a href="#login" class="nav-link login-btn">Login</a></li>
         </ul>
         <div class="hamburger" id="hamburger">
           <span></span>
@@ -49,7 +49,7 @@
         </div>
       </div>
     </nav>
-    <a href="resume.pdf" class="read-now">Read Now</a>
+
     <!-- Home Section -->
     <section id="home" class="hero">
       <div class="hero-content">
@@ -114,7 +114,7 @@
               <p class="genre">Science Fiction</p>
               <div class="rating">★★★★★ (4.5)</div>
               <button
-                class="read-btn"
+                class="read-list-btn"
                 onclick="addToReadingList('Dune', 'Frank Herbert')"
               >
                 Add to List
@@ -133,12 +133,7 @@
               <div class="rating">★★★★☆ (4.1)</div>
               <button
                 class="read-btn"
-                onclick="
-                  addToReadingList(
-                    'The Girl with the Dragon Tattoo',
-                    'Stieg Larsson',
-                  )
-                "
+                onclick="addToReadingList('The Girl with the Dragon Tattoo', 'Stieg Larsson')"
               >
                 Add to List
               </button>
@@ -275,11 +270,11 @@
             <h3>Get in Touch</h3>
             <div class="contact-item">
               <h4><i class="fas fa-map-marker-alt"></i> Address</h4>
-              <p>Bada Darwaja Barachh<br />Panna District, M.P.</p>
+              <p>123 Digital Avenue<br />Tech District, CA 94105</p>
             </div>
             <div class="contact-item">
               <h4><i class="fas fa-phone"></i> Phone</h4>
-              <p>+919691565650</p>
+              <p>+1 (555) READ-BOOK</p>
             </div>
             <div class="contact-item">
               <h4><i class="fas fa-envelope"></i> Email</h4>
@@ -504,6 +499,7 @@
         </div>
       </div>
     </footer>
-    <script src="./src/index.js" defer></script>
+
+    <script src="my-ebook/index.js" defer></script>
   </body>
 </html>

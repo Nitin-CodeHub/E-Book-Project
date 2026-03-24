@@ -115,17 +115,32 @@ function displayBooks(booksToShow = books) {
 }
 
 
-// ================= READING LIST =================
+// // ================= READING LIST =================
 
-let readingList = [];
+// let readingList = [];
 
-function addToReadingList(bookId) {
-  const book = books.find((b) => b.id === bookId);
-  if (book && !readingList.includes(book)) {
-    readingList.push(book);
-    updateReadingCount();
-  }
-}
+// function addToReadingList(bookId) {
+//   const book = books.find((b) => b.id === bookId);
+//   if (book && !readingList.includes(book)) {
+//     readingList.push(book);
+//     updateReadingCount();
+//   }
+// }
+
+ // Reading list modal functionality
+  const readingListBtn = document.querySelector(".reading-list-btn");
+  const readingListModal = document.getElementById("reading-list-modal");
+  const clearListBtn = document.getElementById("clear-list");
+  const startReadingBtn = document.getElementById("start-reading");
+
+  readingListBtn.addEventListener("click", function (e) {
+    e.preventDefault();
+    openModal("reading-list-modal");
+  });
+
+  clearListBtn.addEventListener("click", clearReadingList);
+  startReadingBtn.addEventListener("click", startReading);
+
 
 function updateReadingCount() {
   const counter = document.getElementById("reading-count");
