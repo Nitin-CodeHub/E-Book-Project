@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "title": "Java Programming",
+    "author": "BookVerse",
+    "genre": "fiction",
+    "format": "pdf",
+    "cover": "https://tse2.mm.bing.net/th/id/OIP._Lm_T3scKhVEVFC54gcRxwHaE8?pid=Api&P=0&h=180",
+    "rating": 4.8,
+    "description": "Java sikhne ke liye best book",
+    "content": "Ye Java book ka content hai...",
+    "pdf": "./Books/cpp_notes.pdf"
+  }
+
+  
+]
