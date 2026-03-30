@@ -4,7 +4,7 @@ let currentUser = null;
 let books = [
   {
     id: 1,
-    title: "Java Programming",
+    title: "Object Oriented Programing With Java",
     author: "BookVerse community",
     genre: "fiction",
     format: "e-book",
