@@ -6,7 +6,7 @@ let books = [
     id: 1,
     title: "Object Oriented Programing With Java",
     author: "BookVerse community",
-    genre: "fiction",
+    genre: "Programing",
     format: "e-book",
     cover:
       "https://tse2.mm.bing.net/th/id/OIP._Lm_T3scKhVEVFC54gcRxwHaE8?pid=Api&P=0&h=180",
